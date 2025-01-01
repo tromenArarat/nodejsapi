@@ -1,0 +1,16 @@
+[Unit]
+Description=Clientes API Service
+After=network.target
+
+[Service]
+Environment="DB_USER=<TU-USER>"
+Environment="DB_PASSWORD=<TU-PASS>"
+Environment="CONNECT_STRING=<TU-DNS>"
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/api/
+ExecStart=/usr/bin/node /home/ubuntu/api/bin/www
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
